@@ -1,12 +1,9 @@
-//**********************************************//
-//**************** // FRENCH // ****************//
-//**********************************************//
-
 import styled from "styled-components";
 import { Button } from "../../../GlobalStyles";
 
 export const HeroSection = styled.section`
   height: 100vh;
+  overflow-y: hidden;
   background-position: center;
   background-size: cover;
   padding-top: clamp(70px, 35vh, 220px);

@@ -71,7 +71,7 @@ export const TopLine = styled(motion.div)`
   font-weight: 550;
   letter-spacing: 1.4px;
   margin-bottom: 1.3rem;
-  color: #979797;
+  color:whitesmoke;
 `;
 
 export const Img = styled(motion.img)`
@@ -91,7 +91,7 @@ export const Heading = styled(motion.h2)`
   font-size: 3rem;
   line-height: 1.1;
   font-weight: 600;
-  color: ${({ inverse }) => (inverse ? "#0c4577" : "white")};
+  color: ${({ inverse }) => (inverse ? "#FDE61E" : "whitesmoke")};
   @media screen and (max-width: 768px) {
     text-align: center;
   }
@@ -101,7 +101,7 @@ export const Subtitle = styled(motion.p)`
   max-width: 440px;
   margin-bottom: 35px;
   line-height: 24px;
-  color: ${({ inverse }) => (inverse ? "#6a6a6a" : "white")};
+  color: ${({ inverse }) => (inverse ? "whitesmoke" : "#979797")};
 `;
 
 export const ContentButton = styled(motion.button)`
@@ -120,13 +120,13 @@ export const ContentButton = styled(motion.button)`
   padding: ${({ big }) => (big ? "12px 64px" : "10px 20px")};
   font-size: ${({ fontBig }) => (fontBig ? "20px" : "16px")};
   outline: none;
-  border: 2px solid ${({ inverse }) => (inverse ? "#0c4577" : "white")};
+  border: 2px solid ${({ inverse }) => (inverse ? "#FDE61E" : "white")};
   cursor: pointer;
   position: relative;
   overflow: hidden;
   &:before {
-    background: ${({ inverse }) => (inverse ? "#0c4577" : "white")};
-    opacity: 0.6;
+    background: ${({ inverse }) => (inverse ? "#FDE61E" : "white")};
+    opacity: 0.5;
     content: "";
     position: absolute;
     top: 50%;

@@ -10,13 +10,12 @@ const GlobalStyles = createGlobalStyle`
 }
 `;
 
-
-
-
 export const Container = styled.div`
   margin: 180px auto 0 auto;
   padding: 0 50px;
+
   @media screen and (max-width: 960px) {
+ 
   }
 `;
 /* https://developer.mozilla.org/en-US/docs/Web/CSS/clamp */
@@ -91,7 +90,7 @@ export const Section = styled.section`
 export const HomeSection = styled.section`
   padding: ${({ padding }) => (padding ? padding : "10px 10% 150px 10%")};
   margin: ${({ margin }) => (margin ? margin : "0 0 -4rem 0")};
-  background: ${({ inverse }) => (inverse ? "white" : "#071c2f")};
+  background: #272b30;
   position: ${({ position }) => (position ? position : "")};
   width: ${({ width }) => (width ? width : "auto")};
   min-width: ${({ minWidth }) => (minWidth ? minWidth : "auto")};
@@ -105,7 +104,8 @@ export const HomeSection = styled.section`
 `;
 
 export const AboutSection = styled(Section)`
-  padding: ${({ padding }) => (padding ? padding : "0 12% 0 10%")};
+  padding: ${({ padding }) => (padding ? padding : "12% 12% 0 10%")};
+  margin: ${({ margin }) => (margin ? margin : "20px")};
 `;
 
 export const ContactSection = styled(Section)`

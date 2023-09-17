@@ -1,23 +1,13 @@
-//**********************************************//
-//**************** // FRENCH // ****************//
-//**********************************************//
-
 import styled from "styled-components";
 import { Link, NavLink as BaseNavLink } from "react-router-dom";
 
 export const NavbarContainer = styled.nav`
   z-index: 999 !important;
-  opacity:0.85;
+  opacity: 0.85;
   position: fixed;
   width: 100%;
   height: ${(props) => (props.extendNavbar ? "100vh" : "80px")};
-  background: rgb(255, 255, 255);
-  background: linear-gradient(
-    20deg,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(63, 92, 122, 1) 40%,
-    rgba(3, 41, 80, 1) 100%
-  );
+  background: #272b30;
   display: flex;
   flex-direction: column;
   @media screen and (min-width: 1024px) {
@@ -56,18 +46,7 @@ export const StyledLogo = styled.div`
 export const RightContainer = styled.div`
   display: flex;
   align-items: center;
-  animation-duration: 0.5s;
-  animation-name: slideInRight;
-  
-  @keyframes slideInRight {
-    from {
-      transform: translate3d(250%, 0, 0);
-      visibility: visible;
-    }
-  }
-  @media (min-width: 891px) {
-    font-size: 10px;
-  }
+  font-size: 10px;
   `;
 
 export const NavLink = styled(BaseNavLink)`
@@ -77,7 +56,7 @@ export const NavLink = styled(BaseNavLink)`
   margin: 10px;
   transition: all 0.2s ease-in-out;
   :hover {
-    background-image: linear-gradient(45deg, #009966, #f3ec78);
+    background-image: linear-gradient(45deg, #f3ec78, #fde61f);
     background-size: 100%;
     background-repeat: repeat;
     -webkit-background-clip: text;
@@ -88,7 +67,7 @@ export const NavLink = styled(BaseNavLink)`
     transform: scale(1.09);
   }
   &.active {
-    background-image: linear-gradient(45deg, #009966, #f3ec78);
+    background-image: linear-gradient(45deg, #fdb731, #f3ec78);
     background-size: 100%;
     background-repeat: repeat;
     -webkit-background-clip: text;
@@ -161,7 +140,7 @@ export const NavbarLinkExtendedOne = styled(MenuLink)`
     }
   }
   :hover {
-    background-image: linear-gradient(45deg, #009966, #f3ec78);
+    background-image: linear-gradient(45deg, #fdb731, #f3ec78);
     background-size: 100%;
     background-repeat: repeat;
     -webkit-background-clip: text;
@@ -172,7 +151,7 @@ export const NavbarLinkExtendedOne = styled(MenuLink)`
     transform: scale(1.09);
   }
   &.active {
-    background-image: linear-gradient(45deg, #009966, #f3ec78);
+    background-image: linear-gradient(45deg, #fdb731, #f3ec78);
     background-size: 100%;
     background-repeat: repeat;
     -webkit-background-clip: text;
@@ -205,7 +184,7 @@ export const NavbarLinkExtendedTwo = styled(MenuLink)`
     }
   }
   :hover {
-    background-image: linear-gradient(45deg, #009966, #f3ec78);
+    background-image: linear-gradient(45deg, #fdb731, #f3ec78);
     background-size: 100%;
     background-repeat: repeat;
     -webkit-background-clip: text;
@@ -216,7 +195,7 @@ export const NavbarLinkExtendedTwo = styled(MenuLink)`
     transform: scale(1.09);
   }
   &.active {
-    background-image: linear-gradient(45deg, #009966, #f3ec78);
+    background-image: linear-gradient(45deg, #fdb731, #f3ec78);
     background-size: 100%;
     background-repeat: repeat;
     -webkit-background-clip: text;

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { NavLink } from "react-router-dom" 
+import { NavLink } from "react-router-dom";
 import { Container, HomeSection } from "../../../GlobalStyles";
 import {
   ContentRow,
@@ -10,13 +10,13 @@ import {
   Subtitle,
   ImgWrapper,
   Img,
-  ContentColumn
+  ContentColumn,
 } from "./ContentStyles.js";
 
 import { useInView } from "react-intersection-observer";
 import { useAnimation } from "framer-motion";
 
-export const Content = ({
+export const ContentThree = ({
   primary,
   topLine,
   headline,
@@ -41,10 +41,10 @@ export const Content = ({
     }
   }, [inView, animation]);
 
- const Style = {
-   textDecoration: "none",
-   color: "#FDE61E",
- };
+  const Style = {
+    textDecoration: "none",
+    color: "#FDE61E",
+  };
 
   return (
     <HomeSection inverse={inverse} ref={ref}>
@@ -54,14 +54,14 @@ export const Content = ({
             <TextWrapper>
               <TopLine
                 initial={initial}
-                transition={{ delay: 0.8, duration: 1 }}
+                transition={{ delay: 0.3, duration: 0.6 }}
                 animate={animation}
               >
                 {topLine.text}
               </TopLine>
               <Heading
                 initial={initial}
-                transition={{ delay: 1, duration: 1.2 }}
+                transition={{ delay: 0.5, duration: 0.6 }}
                 animate={animation}
                 inverse={inverse}
               >
@@ -69,7 +69,7 @@ export const Content = ({
               </Heading>
               <Subtitle
                 initial={initial}
-                transition={{ delay: 1.2, duration: 1.4 }}
+                transition={{ delay: 0.7, duration: 0.6 }}
                 animate={animation}
                 inverse={inverse}
               >
@@ -77,14 +77,11 @@ export const Content = ({
               </Subtitle>
               <ContentButton
                 initial={initial}
-                transition={{ delay: 1.4, duration: 1.6 }}
+                transition={{ delay: 1, duration: 0.6 }}
                 animate={animation}
                 inverse={inverse}
               >
-                <NavLink
-                  to="/characters"
-                 style={Style}
-                >
+                <NavLink to="/starships" style={Style}>
                   {buttonLabel}
                 </NavLink>
               </ContentButton>
@@ -92,7 +89,7 @@ export const Content = ({
           </ContentColumn>
           <ContentColumn
             initial={initial}
-            transition={{ delay: 1.6, duration: 1.8 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
             animate={animation}
           >
             <ImgWrapper>

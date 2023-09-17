@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { BsLinkedin } from "react-icons/bs";
 import Logo from "../../../Logo/Logo";
 import {
   NavbarContainer,
@@ -14,24 +13,13 @@ import {
   NavbarLinkExtendedTwo,
   NavbarLinkExtendedThree,
   NavbarLinkExtendedFour,
-  NavbarLinkExtendedFive,
-  NavbarLinkExtendedSix,
 } from "./NavbarStyles";
 
-const Header = () => {
+const Navbar = () => {
   const [extendNavbar, setExtendNavbar] = useState(false);
-  const [isHovering, setIsHovering] = useState(false);
 
   const closeNavbar = () => {
     setExtendNavbar(false);
-  };
-
-  const handleMouseEnter = () => {
-    setIsHovering(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovering(false);
   };
 
   // When the user scrolls down 50px from the top of the document, resize logo
@@ -41,34 +29,16 @@ const Header = () => {
     <NavbarContainer extendNavbar={extendNavbar}>
       <NavbarInnerContainer>
         <StyledLogo>
-          <Link to="/home" style={{ textDecoration: "none" }}>
-            <Logo  />
+          <Link to="/" style={{ textDecoration: "none" }}>
+            <Logo />
           </Link>
         </StyledLogo>
 
         <RightContainer>
-          <NavLink to="/home">Home</NavLink>
-          <NavLink to="/about">About</NavLink>
-          <NavLink to="/projects">Projects</NavLink>
-          <NavLink to="/contact">Contact</NavLink>
-          <NavLink
-            to={
-              "https://www.linkedin.com/in/mordechai-ludmer-ing-m-ing-39a1a312/"
-            }
-          >
-            <BsLinkedin
-              size={16}
-              style={{
-                fill: isHovering ? "#009966" : "whitesmoke",
-                transition: isHovering ? "all 0.2s ease-in-out" : "",
-                transform: isHovering ? "scale(1.09)" : "",
-              }}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-            />
-          </NavLink>
-          <NavLink to="/">FR</NavLink>
-          <NavLink to="/home">EN</NavLink>
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="/characters">Characters</NavLink>
+          <NavLink to="/planets">Planets</NavLink>
+          <NavLink to="/starships">Starships</NavLink>
           <OpenLinksButton
             onClick={() => {
               setExtendNavbar((current) => !current);
@@ -80,22 +50,20 @@ const Header = () => {
       </NavbarInnerContainer>
       {extendNavbar && (
         <NavbarExtendedContainer>
-          <NavbarLinkExtendedOne onMenuItemSelect={closeNavbar} to="/home">
+          <NavbarLinkExtendedOne onMenuItemSelect={closeNavbar} to="/">
             Home
           </NavbarLinkExtendedOne>
-          <NavbarLinkExtendedTwo to="/about">About</NavbarLinkExtendedTwo>
-          <NavbarLinkExtendedThree to="/projects">
-            Projects
+          <NavbarLinkExtendedTwo to="/characters">Characters</NavbarLinkExtendedTwo>
+          <NavbarLinkExtendedThree to="/planets">
+            Planets
           </NavbarLinkExtendedThree>
-          <NavbarLinkExtendedFour to="/contact">Contact</NavbarLinkExtendedFour>
-          <NavbarLinkExtendedFive to="/">
-            Français
-          </NavbarLinkExtendedFive>
-          <NavbarLinkExtendedSix to="/home">English</NavbarLinkExtendedSix>
+          <NavbarLinkExtendedFour to="/starships">
+            Starships
+          </NavbarLinkExtendedFour>
         </NavbarExtendedContainer>
       )}
     </NavbarContainer>
   );
 };
 
-export default Header;
+export default Navbar;

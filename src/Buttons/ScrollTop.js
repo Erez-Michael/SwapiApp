@@ -43,7 +43,7 @@ const Button = styled.div`
   font-size: 3rem;
   z-index: 99;
   cursor: pointer;
-  background-image: linear-gradient(45deg, #009966, #f3ec78);
+  background-image: linear-gradient(45deg, #fdb731, #f3ec78);
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
   @media screen and (max-width: 768px) {

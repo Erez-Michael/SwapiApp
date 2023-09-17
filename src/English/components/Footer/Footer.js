@@ -5,19 +5,18 @@ const Footer = () => {
   return (
     <Container>
       <div>
-        <p> © Ludmer Engineering | 2023 | All rights reserved.</p>
+        <p> © Erez Michael | 2023 | All rights reserved.</p>
       </div>
     </Container>
   );
 };
 
 const Container = styled.div`
-position: relative;
-bottom:-4rem;
+  position: relative;
   border-top: solid #435f7b 0.1rem;
   width: 100%;
   padding: 40px 0;
-  background-color: #071c2f;
+  background-color: #272b30;
   div {
     display: flex;
     align-items: center;
@@ -29,7 +28,7 @@ bottom:-4rem;
   }
   p {
     color: whitesmoke;
-    background-color: #071c2f;
+    background-color: #272b30;
     margin-top: -10px;
     z-index: 10;
     padding: 0 15px;
@@ -41,6 +40,6 @@ bottom:-4rem;
     align-items: center;
   }
   @media screen and (max-width: 768px) {
-}
+  }
 `;
 export default Footer;

@@ -82,7 +82,7 @@ export const ContentTwo = ({
                 inverse={inverse}
                 primary={primary}
               >
-                              <NavLink to="/projects"
+                              <NavLink to="/planets"
                               style={Style}>{buttonLabelProjects}</NavLink>
               </ContentButton>
             </TextWrapper>
