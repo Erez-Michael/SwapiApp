@@ -19,6 +19,8 @@ const StarshipContent = () => {
       .then((data) => {
         setData(data.results);
         setFilterData(data.results);
+        setIsLoading(false);
+
         console.log(data.results);
       });
   }, []);
@@ -33,7 +35,7 @@ const StarshipContent = () => {
   if (isLoading) {
     return (
       <Spinner>
-        <BounceLoader loading={isLoading} size={150} color="#DCAB3D"/>
+        <BounceLoader loading={isLoading} size={150} color="#DCAB3D" />
       </Spinner>
     );
   } else {
@@ -82,6 +84,7 @@ const Wrapper = styled.div`
     margin-top: 150px;
   }
 `;
+
 const Spinner = styled.span`
   background: #272b30;
   font-size: 3rem;
@@ -89,16 +92,20 @@ const Spinner = styled.span`
   justify-content: center;
   align-items: center;
   height: calc(100vh - 150px);
+  @media screen and (max-width: 475px) {
+    margin-top: 30%;
+  }
 `;
+
 const Tool = styled.div`
   position: relative;
 `;
 
 const Search = styled.div`
+  position: relative;
   display: flex;
   justify-content: center;
-  margin-bottom: 10%;
-  margin-top: -5%;
+  margin-bottom: 5rem;
   scale: 1.35;
 `;
 
@@ -113,5 +120,6 @@ const StarshipWrapper = styled.div`
   -webkit-box-shadow: -1px 1px 27px 0px rgba(253, 230, 30, 0.39);
   -moz-box-shadow: -1px 1px 27px 0px rgba(253, 230, 30, 0.39);
 `;
+
 
 export default StarshipContent;

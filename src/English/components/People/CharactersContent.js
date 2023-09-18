@@ -92,6 +92,9 @@ const Spinner = styled.span`
   justify-content: center;
   align-items: center;
   height: calc(100vh - 150px);
+  @media screen and (max-width: 475px) {
+    margin-top: 30%;
+  }
 `;
 
 const Tool = styled.div`
@@ -99,11 +102,12 @@ const Tool = styled.div`
 `;
 
 const Search = styled.div`
+position: relative;
   display: flex;
   justify-content: center;
-  margin-bottom: 10%;
-  margin-top: -5%;
+  margin-bottom: 5rem;
   scale: 1.35;
+
 `;
 
 const CharacterWrapper = styled.div`

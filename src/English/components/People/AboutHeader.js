@@ -22,7 +22,6 @@ const AboutHeader = () => {
 };
 
 const ContainerTop = styled.div`
-  
   background: #272b30;
   display: flex;
   align-items: center;
@@ -30,7 +29,13 @@ const ContainerTop = styled.div`
   flex-direction: column;
   padding-top: 8rem;
   margin-bottom: -4rem;
-  @media screen and (max-width: 768px) {
+  @media screen and (min-width: 768px) {
+    margin-bottom: -12rem;
+  }
+  @media screen and (min-width: 476px) {
+    margin-bottom: -12rem;
+  }
+  @media screen and (max-width: 475px) {
     margin-bottom: -12rem;
   }
 `;

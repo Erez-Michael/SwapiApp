@@ -19,11 +19,7 @@ export const NavbarContainer = styled.nav`
   }
 
   @media screen and (max-width: 640px) {
-    background: linear-gradient(
-      20deg,
-      rgba(255, 255, 255, 1) 0%,
-      rgba(63, 92, 122, 1) 42%,
-      rgba(3, 41, 80, 1) 100%
+    background:#272B30;
     );
   }
 `;

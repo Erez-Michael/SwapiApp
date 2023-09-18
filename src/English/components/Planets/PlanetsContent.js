@@ -19,6 +19,8 @@ const PlanetsContent = () => {
       .then((data) => {
         setData(data.results);
         setFilterData(data.results);
+        setIsLoading(false);
+
         console.log(data.results);
       });
   }, []);
@@ -78,11 +80,11 @@ const Wrapper = styled.div`
   justify-content: center;
   text-align: center;
   padding: 20% 0;
-
   @media screen and (max-width: 960px) {
     margin-top: 150px;
   }
 `;
+
 const Spinner = styled.span`
   background: #272b30;
   font-size: 3rem;
@@ -90,16 +92,20 @@ const Spinner = styled.span`
   justify-content: center;
   align-items: center;
   height: calc(100vh - 150px);
+  @media screen and (max-width: 475px) {
+    margin-top: 30%;
+  }
 `;
+
 const Tool = styled.div`
   position: relative;
 `;
 
 const Search = styled.div`
+  position: relative;
   display: flex;
   justify-content: center;
-  margin-bottom: 10%;
-  margin-top: -5%;
+  margin-bottom: 5rem;
   scale: 1.35;
 `;
 
