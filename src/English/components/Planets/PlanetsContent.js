@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import ToolTip2 from "../Tooltip/ToolTip2";
+import RingLoader from "react-spinners/RingLoader";
 
 const PlanetsContent = () => {
   const [data, setData] = useState([]);
@@ -8,8 +9,11 @@ const PlanetsContent = () => {
   const [hover, setHover] = useState();
   const [left, setLeft] = useState();
   const [top, setTop] = useState();
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
+
     fetch("https://swapi.dev/api/planets/")
       .then((response) => response.json())
       .then((data) => {
@@ -26,38 +30,47 @@ const PlanetsContent = () => {
       })
     );
   };
-
-  return (
-    <Wrapper>
-      <Search>
-        <input
-          type="text"
-          placeholder="Search Planets..."
-          onChange={(e) => handleFilter(e.target.value)}
-        ></input>
-      </Search>
-      {filterData.map((planet) => (
-        <Tool>
-          <PlanetWrapper
-            onMouseEnter={() => setHover(planet)}
-            onMouseLeave={() => setHover(undefined)}
-            onMouseMove={(e) => {
-              setLeft(e.pageX - window.scrollX);
-              setTop(e.pageY - window.scrollY);
-            }}
-          >
-            <div key={planet.name}>{planet.name}</div>
-          </PlanetWrapper>
-          {hover == planet ? (
-            <ToolTip2 planet={planet} left={left} top={top} />
-          ) : undefined}
-        </Tool>
-      ))}
-    </Wrapper>
-  );
+  if (isLoading) {
+    return (
+      <Spinner>
+        <RingLoader loading={isLoading} size={150} color="#DCAB3D" />
+      </Spinner>
+    );
+  } else {
+    return (
+      <Wrapper>
+        <Search>
+          <input
+            type="text"
+            placeholder="Search Planets..."
+            onChange={(e) => handleFilter(e.target.value)}
+          ></input>
+        </Search>
+        {filterData.map((planet) => (
+          <Tool>
+            <PlanetWrapper
+              onMouseEnter={() => setHover(planet)}
+              onMouseLeave={() => setHover(undefined)}
+              onMouseMove={(e) => {
+                setLeft(e.pageX - window.scrollX);
+                setTop(e.pageY - window.scrollY);
+              }}
+            >
+              <div key={planet.name}>{planet.name}</div>
+            </PlanetWrapper>
+            {hover == planet ? (
+              <ToolTip2 planet={planet} left={left} top={top} />
+            ) : undefined}
+          </Tool>
+        ))}
+      </Wrapper>
+    );
+  }
 };
 
 const Wrapper = styled.div`
+  max-width: 100%;
+  overflow: hidden;
   background: #272b30;
   color: whitesmoke;
   display: flex;
@@ -70,7 +83,14 @@ const Wrapper = styled.div`
     margin-top: 150px;
   }
 `;
-
+const Spinner = styled.span`
+  background: #272b30;
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 150px);
+`;
 const Tool = styled.div`
   position: relative;
 `;

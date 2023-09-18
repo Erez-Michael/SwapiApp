@@ -22,6 +22,7 @@ const AboutHeader = () => {
 };
 
 const ContainerTop = styled.div`
+  
   background: #272b30;
   display: flex;
   align-items: center;

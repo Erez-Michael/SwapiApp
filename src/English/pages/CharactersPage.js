@@ -1,14 +1,19 @@
-import React from "react";
-import Characters from "../components/People/Characters";
+import PageWrapper from "./PageWrapper";
+import Navbar from "../components/Navbar/Navbar";
+import AboutHeader from "../components/People/AboutHeader";
+import CharactersContent from "../components/People/CharactersContent";
+import Footer from "../components/Footer/Footer";
+import styled from "styled-components";
 
 const CharactersPage = () => {
-
-  const styles = {
-    "overflow-y": "hidden",
-    "min-width":"100%"
-  }
-  return <Characters styles={ styles} />;
+  return (
+    <>
+      <Navbar />
+        <AboutHeader />
+        <CharactersContent />
+        <Footer />
+    </>
+  );
 };
 
 export default CharactersPage;
-

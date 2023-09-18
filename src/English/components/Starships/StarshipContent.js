@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import ToolTip3 from "../Tooltip/ToolTip3";
+import BounceLoader from "react-spinners/BounceLoader";
 
 const StarshipContent = () => {
   const [data, setData] = useState([]);
@@ -8,8 +9,11 @@ const StarshipContent = () => {
   const [hover, setHover] = useState();
   const [left, setLeft] = useState();
   const [top, setTop] = useState();
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
+
     fetch("https://swapi.dev/api/starships/")
       .then((response) => response.json())
       .then((data) => {
@@ -26,38 +30,47 @@ const StarshipContent = () => {
       })
     );
   };
-
-  return (
-    <Wrapper>
-      <Search>
-        <input
-          type="text"
-          placeholder="Search Starships..."
-          onChange={(e) => handleFilter(e.target.value)}
-        ></input>
-      </Search>
-      {filterData.map((starship) => (
-        <Tool>
-          <StarshipWrapper
-            onMouseEnter={() => setHover(starship)}
-            onMouseLeave={() => setHover(undefined)}
-            onMouseMove={(e) => {
-              setLeft(e.pageX - window.scrollX);
-              setTop(e.pageY - window.scrollY);
-            }}
-          >
-            <div key={starship.name}>{starship.name}</div>
-          </StarshipWrapper>
-          {hover == starship ? (
-            <ToolTip3 starship={starship} left={left} top={top} />
-          ) : undefined}
-        </Tool>
-      ))}
-    </Wrapper>
-  );
+  if (isLoading) {
+    return (
+      <Spinner>
+        <BounceLoader loading={isLoading} size={150} color="#DCAB3D"/>
+      </Spinner>
+    );
+  } else {
+    return (
+      <Wrapper>
+        <Search>
+          <input
+            type="text"
+            placeholder="Search Starships..."
+            onChange={(e) => handleFilter(e.target.value)}
+          ></input>
+        </Search>
+        {filterData.map((starship) => (
+          <Tool>
+            <StarshipWrapper
+              onMouseEnter={() => setHover(starship)}
+              onMouseLeave={() => setHover(undefined)}
+              onMouseMove={(e) => {
+                setLeft(e.pageX - window.scrollX);
+                setTop(e.pageY - window.scrollY);
+              }}
+            >
+              <div key={starship.name}>{starship.name}</div>
+            </StarshipWrapper>
+            {hover == starship ? (
+              <ToolTip3 starship={starship} left={left} top={top} />
+            ) : undefined}
+          </Tool>
+        ))}
+      </Wrapper>
+    );
+  }
 };
 
 const Wrapper = styled.div`
+  max-width: 100%;
+  overflow: hidden;
   background: #272b30;
   color: whitesmoke;
   display: flex;
@@ -69,7 +82,14 @@ const Wrapper = styled.div`
     margin-top: 150px;
   }
 `;
-
+const Spinner = styled.span`
+  background: #272b30;
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 150px);
+`;
 const Tool = styled.div`
   position: relative;
 `;

@@ -118,8 +118,8 @@ const Hero = () => {
 };
 
 const HeroSection = styled.div`
-  width: 0px;
-  height: 0px;
+  position: fixed;
+  width: 100%;
 `;
 
 const HeroImage = styled.div`
