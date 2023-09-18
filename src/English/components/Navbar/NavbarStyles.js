@@ -20,7 +20,6 @@ export const NavbarContainer = styled.nav`
 
   @media screen and (max-width: 640px) {
     background:#272B30;
-    );
   }
 `;
 
